@@ -68,6 +68,7 @@
                         I have not put any of the following into practice, therefore I don’t really know what I’m talking about.
                     </p>
                     <p>Also, I stole most of this.</p>
+                    <p>Also, I haven't tried to compile any of this code. I'm pretty sure it works.</p>
                 </section>
 
                 <section>
@@ -102,14 +103,17 @@
                     <ul>
                         <li class="fragment">Lambda expressions</li>
                         <li class="fragment">Method references</li>
-                        <li class="fragment">Default methods</li>
                         <li class="fragment">Stream API</li>
+                        <li class="fragment">Default methods</li>
                         <li class="fragment">Optional</li>
                         <li class="fragment">Data/Time API</li>
                         <li class="fragment">Nashorn - new JavaScript engine</li>
                         <li class="fragment">Others</li>
                     </ul>
-                    <aside class="notes">We'll be talking about the first 5.</aside>
+                    <aside class="notes">
+                        We'll be talking about the first 3.<br>
+                        Default methods and Optional are related.<br>
+                    </aside>
                 </section>
 
                 <section>
@@ -132,7 +136,7 @@
 
                 <section>
                     <section>
-                        <h1>Some Background</h1>
+                        <h1>Old Stuff</h1>
                     </section>
                     <section>
                         <h2>Interfaces</h2>
@@ -143,15 +147,17 @@ public interface Automobile {
 }
 
 public class AstonMartin implements Automobile {
-    public void accelerate() { // implementation }
+    public void accelerate() { /* implementation */ }
 }
 
 public class FlyingFordAnglia implements Automobile {
-    public void accelerate() { // implementation }
+    public void accelerate() { /* implementation */ }
 }
 
-Automobile auto = CarFactory.getSomeCar();
-auto.accelerate();
+Automobile jbCar = jamesBond.getAutomobile();
+jbCar.accelerate();
+Automobile hpCar = harryPotter.getAutomobile();
+hpCar.accelerate();
                             </code>
                         </pre>
                         <aside class="notes">
@@ -159,6 +165,103 @@ auto.accelerate();
                             Can be implemented by a concrete class.<br>
                             Client code can use the interface without knowing the underlying implementation.
                         </aside>
+                    </section>
+                    <section>
+                        <h2>Collections API</h2>
+                        <ul>
+                            <li>Collection</li>
+                            <li>Set</li>
+                            <li>List</li>
+                            <li>Queue</li>
+                            <li>Deque</li>
+                            <li>Map</li>
+                        </ul>
+                        <aside class="notes">
+                            These are the main interfaces of the Collections API.<br>
+                            If you’re a Java programmer, these are your friends.<br>
+                            I highly recommend the Collections trail of the Java Tutorials.<br>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Generics</h2>
+                        <pre>
+                            <code data-trim class="java">
+List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3);
+
+Map&lt;Integer, String&gt; names = new HashMap&lt;&gt;();
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            Add compile-time checking to your containers.
+                            Used heavily by Collections API.
+                            You can find out more in the Java Tutorials.
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>New Stuff</h1>
+                    </section>
+                    <section>
+                        <h2>Functional Interfaces</h2>
+                        <p>An interface with exactly one abstract method.</p>
+                        <pre class="fragment">
+                            <code data-trim class="java">
+// Consumer accepts a single input argument and returns no result
+public void processStrings(List&lt;String&gt; strings,
+                           Consumer&lt;String&gt; consumer) {
+    for (String s : strings) {
+        consumer.accept(s);
+    }
+}
+                            </code>
+                        </pre>
+                        <aside class="notes">Many more in the java.util.function package.</aside>
+                    </section>
+                    <section>
+                        <h2>Lambda Expressions</h2>
+                        <p>Special syntax for an anonymous class with one method.</p>
+                        <pre class="fragment">
+                            <code data-trim class="java">
+// instead of this
+processStrings(list, new Consumer&lt;String&gt;() {
+    @Override
+    public void accept(String s) {
+        System.out.println(s);
+    }
+});
+                            </code>
+                        </pre>
+                        <pre class="fragment">
+                            <code data-trim class="java">
+// we do this
+processStrings(list, s -&gt; System.out.println(s));
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            parameters -&gt; body<br>
+                            Any where you need to pass an implementation of a single-method interface, you can use a lambda expression.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Method References</h2>
+                        <p>Special syntax for a lambda expression that calls a single existing method.</p>
+                        <pre class="fragment">
+                            <code data-trim class="java">
+// instead of this
+processStrings(list, s -&gt; System.out.println(s));
+                            </code>
+                        </pre>
+                        <pre class="fragment">
+                            <code data-trim class="java">
+// we do this
+processStrings(list, System.out::println);
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <img src="http://media.giphy.com/media/NbgeJftsErO5q/giphy.gif">
                     </section>
                 </section>
 
