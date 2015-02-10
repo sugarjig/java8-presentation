@@ -74,16 +74,18 @@
                     <h2>Resources</h2>
                     <p>
                         <a href="https://leanpub.com/whatsnewinjava8/read">
-                            What’s New in Java 8 by Adam L. Davis
+                            What’s New in Java 8
                         </a>
+                        by Adam L. Davis
                     </p>
                     <p>
                         <a href="http://docs.oracle.com/javase/tutorial/">
                             The Java Tutorials
                         </a>
+                        by Oracle
                     </p>
                     <aside class="notes">
-                        Java tutorials is an excellent resource even if you have been using Java for
+                        Java Tutorials is an excellent resource even if you have been using Java for
                         years.
                     </aside>
                 </section>
@@ -121,10 +123,10 @@
                         <li class="fragment">Now Java!</li>
                     </ul>
                     <aside class="notes">
-                        I learned ML in college and it blew my mind.
-                        Programming was turned inside-out.
-                        Java 8 accomplishes this without breaking backwards compatibility, so it's kind of hacky.
-                        If you're a hardcore functional programmer, you might not be impressed with Java 8's approach.
+                        I learned ML in college and it blew my mind.<br>
+                        Programming was turned inside-out.<br>
+                        Java 8 accomplishes this without breaking backwards compatibility, so it's kind of hacky.<br>
+                        If you're a hardcore functional programmer, you might not be impressed with Java 8's approach.<br>
                     </aside>
                 </section>
 
@@ -132,7 +134,32 @@
                     <section>
                         <h1>Some Background</h1>
                     </section>
-                    
+                    <section>
+                        <h2>Interfaces</h2>
+                        <pre>
+                            <code data-trim class="java">
+public interface Automobile {
+    public void accelerate();
+}
+
+public class AstonMartin implements Automobile {
+    public void accelerate() { // implementation }
+}
+
+public class FlyingFordAnglia implements Automobile {
+    public void accelerate() { // implementation }
+}
+
+Automobile auto = CarFactory.getSomeCar();
+auto.accelerate();
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            A type that cannot be instantiated.<br>
+                            Can be implemented by a concrete class.<br>
+                            Client code can use the interface without knowing the underlying implementation.
+                        </aside>
+                    </section>
                 </section>
 
                 <!-- Example of nested vertical slides -->
