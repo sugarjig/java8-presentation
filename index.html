@@ -46,8 +46,8 @@
                 </section>
 
                 <section>
-                    <h1>Picture of William needed here</h1>
-                    <img src="" />
+                    <h2>By Sam and William</h2>
+                    <img src="working.jpg" width="50%" />
                     <aside class="notes">William helped with this presentation.</aside>
                 </section>
 
@@ -394,13 +394,13 @@ employeesGroupedByGender.put(Gender.MALE, maleList);
 List&lt;Employee&gt; femaleList = new ArrayList&lt;&gt;();
 employeesGroupedByGender.put(Gender.FEMALE, femaleList);
 
-for (int i = 0; i < 25; i++) {
+for (int i = 0; i &lt; 25; i++) {
     Employee employee = employees.get(i);
 
     if (!employee.isManager()
-            && employee.getSalary() &lt; 100_000
-            && employee.getAge() &gt; 50
-            && employee.getYearsOfService() &gt; 10) {
+            &amp;&amp; employee.getSalary() &lt; 100_000
+            &amp;&amp; employee.getAge() &gt; 50
+            &amp;&amp; employee.getYearsOfService() &gt; 10) {
         Email email = new Email();
         email.setToAddress(employee.getEmail());
         email.send();
@@ -411,6 +411,9 @@ for (int i = 0; i < 25; i++) {
 }
                             </code>
                         </pre>
+                    </section>
+                    <section>
+                        <img src="grumpy.jpg" width="50%">
                     </section>
                     <section>
                         <h2>Java 8</h2>
@@ -465,6 +468,10 @@ Map&lt;Gender, List&lt;Employee&gt;&gt; employeesGroupedByGender =
                     <aside class="notes">
                         Concurrency is an important benefit claimed by functional programming
                     </aside>
+                </section>
+
+                <section>
+                    <img src="goodbye.jpg" width="50%">
                 </section>
 
             </div>
