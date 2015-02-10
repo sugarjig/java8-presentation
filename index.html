@@ -328,7 +328,7 @@ Stream&lt;String&gt; filteredStream = stream
                         <pre>
                             <code data-trim class="java">
 String result =
-    filteredStream.reduce("", (s1, s2) -> s1 + s2.substring(1, 2));
+    stream.reduce("", (s1, s2) -> s1 + s2.substring(1, 2));
                             </code>
                         </pre>
                     </section>
@@ -346,11 +346,11 @@ List&lt;String&gt; filteredList =
                         <h2>Sorting</h2>
                         <pre>
                             <code data-trim class="java">
-List&lt;String&gt; naturalOrder = stream.sorted();
-List&lt;String&gt; reversedOrder =
-    stream.sorted(Comparator.naturalOrder().reversed());
-List&lt;String&gt; sortedByLength =
-    stream.sorted(Comparator.comparingInt(String::length));
+Stream&lt;String&gt; naturalOrder = list.stream().sorted();
+Stream&lt;String&gt; reversedOrder =
+    list.stream().sorted(Comparator.reverseOrder());
+Stream&lt;String&gt; sortedByLength =
+    list.stream().sorted(Comparator.comparingInt(String::length));
                             </code>
                         </pre>
                     </section>
@@ -371,6 +371,8 @@ public class Employee {
     int salary;
     boolean manager;
     int yearsOfService;
+
+    // getters and setters
 }
                             </code>
                         </pre>
