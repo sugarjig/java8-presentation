@@ -85,6 +85,12 @@
                         </a>
                         by Oracle
                     </p>
+                    <p>
+                        <a href="https://www.google.com/">
+                            Google Search
+                        </a>
+                        by Google
+                    </p>
                     <aside class="notes">
                         Java Tutorials is an excellent resource even if you have been using Java for
                         years.
@@ -262,6 +268,9 @@ processStrings(list, System.out::println);
                     </section>
                     <section>
                         <img src="http://media.giphy.com/media/NbgeJftsErO5q/giphy.gif">
+                        <aside class="notes">
+                            It's okay if you feel like this guy. Things start to make more sense when you use the Streams API.
+                        </aside>
                     </section>
                 </section>
 
@@ -283,6 +292,7 @@ Stream&lt;String&gt; stream = list.stream();
                     </section>
                     <section>
                         <h2>First Example</h2>
+                        <h3>Look Ma! No loops!</h3>
                         <pre>
                             <code data-trim class="java">
 stream.forEach(System.out::println);
@@ -365,28 +375,12 @@ List&lt;String&gt; sortedByLength =
                         <li>Parallel streams and concurrency</li>
                         <li>Closures</li>
                         <li>Immutability</li>
-                    </ul>
-                    <aside class="notes">
-                        Concurrency is an important benefit claimed by functional programming
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>Further Reading</h2>
-                    <ul>
-                        <li>FP ideas and theory</li>
+                        <li>FP theory</li>
                         <li>Other FP languages</li>
                         <li>Reactive programming - everything is a stream!</li>
                     </ul>
-                </section>
-
-                <section>
-                    <h2>Future of Programming</h2>
-                    <p>Mix of OOP and FP?</p>
-                    <p>Hard to model databases and other external resources as functions.</p>
                     <aside class="notes">
-                        Java 8 provides this mix.<br>
-                        Java 8 has pulled off an impressive feat: incorporating functional programming into a mainstream language while maintaining backward compatibility.
+                        Concurrency is an important benefit claimed by functional programming
                     </aside>
                 </section>
 
