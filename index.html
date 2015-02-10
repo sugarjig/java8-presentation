@@ -388,14 +388,14 @@ public class Employee {
                         <h2>Java 7</h2>
                         <pre>
                             <code data-trim class="java">
-List<Employee> employees = new ArrayList<>();
+List&lt;Employee&gt; employees = new ArrayList&lt;&gt;();
 
-Map<Gender, List<Employee>> employeesGroupedByGender = new HashMap<>();
+Map&lt;Gender, List&lt;Employee&gt;&gt; employeesGroupedByGender = new HashMap&lt;&gt;();
 
-List<Employee> maleList = new ArrayList<>();
+List&lt;Employee&gt; maleList = new ArrayList&lt;&gt;();
 employeesGroupedByGender.put(Gender.MALE, maleList);
 
-List<Employee> femaleList = new ArrayList<>();
+List&lt;Employee&gt; femaleList = new ArrayList&lt;&gt;();
 employeesGroupedByGender.put(Gender.FEMALE, femaleList);
 
 int count = 0;
@@ -404,14 +404,14 @@ for (Employee employee : employees) {
         break;
     }
     if (!employee.isManager()
-            && employee.getSalary() < 100_000
-            && employee.getAge() > 50
-            && employee.getYearsOfService() > 10) {
+            && employee.getSalary() &lt; 100_000
+            && employee.getAge() &gt; 50
+            && employee.getYearsOfService() &gt; 10) {
         EmailSystem email = new EmailSystem();
         email.setToAddress(employee.getEmail());
         email.send();
 
-        List<Employee> genderList = employeesGroupedByGender.get(employee.getGender());
+        List&lt;Employee&gt; genderList = employeesGroupedByGender.get(employee.getGender());
         genderList.add(employee);
 
         count++;
