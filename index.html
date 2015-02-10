@@ -388,6 +388,35 @@ public class Employee {
                         <h2>Java 7</h2>
                         <pre>
                             <code data-trim class="java">
+List<Employee> employees = new ArrayList<>();
+
+Map<Gender, List<Employee>> employeesGroupedByGender = new HashMap<>();
+
+List<Employee> maleList = new ArrayList<>();
+employeesGroupedByGender.put(Gender.MALE, maleList);
+
+List<Employee> femaleList = new ArrayList<>();
+employeesGroupedByGender.put(Gender.FEMALE, femaleList);
+
+int count = 0;
+for (Employee employee : employees) {
+    if (count == 25) {
+        break;
+    }
+    if (!employee.isManager()
+            && employee.getSalary() < 100_000
+            && employee.getAge() > 50
+            && employee.getYearsOfService() > 10) {
+        EmailSystem email = new EmailSystem();
+        email.setToAddress(employee.getEmail());
+        email.send();
+
+        List<Employee> genderList = employeesGroupedByGender.get(employee.getGender());
+        genderList.add(employee);
+
+        count++;
+    }
+}
                             </code>
                         </pre>
                     </section>
