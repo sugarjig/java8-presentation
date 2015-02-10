@@ -148,21 +148,21 @@
                         <h2>Interfaces</h2>
                         <pre>
                             <code data-trim class="java">
-public interface Automobile {
+public interface Car {
     public void accelerate();
 }
 
-public class AstonMartin implements Automobile {
+public class AstonMartin implements Car {
     public void accelerate() { /* implementation */ }
 }
 
-public class FlyingFordAnglia implements Automobile {
+public class FlyingFordAnglia implements Car {
     public void accelerate() { /* implementation */ }
 }
 
-Automobile jbCar = jamesBond.getAutomobile();
+Car jbCar = jamesBond.getCar();
 jbCar.accelerate();
-Automobile hpCar = harryPotter.getAutomobile();
+Car hpCar = harryPotter.getCar();
 hpCar.accelerate();
                             </code>
                         </pre>
@@ -192,8 +192,14 @@ hpCar.accelerate();
                         <h2>Generics</h2>
                         <pre>
                             <code data-trim class="java">
+public interface List&lt;E&gt; extends Collection&lt;E&gt; {
+    // interface definition
+}
 List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3);
 
+public interface Map&lt;K, V&gt; {
+    // interface definition
+}
 Map&lt;Integer, String&gt; names = new HashMap&lt;&gt;();
                             </code>
                         </pre>
@@ -215,6 +221,11 @@ Map&lt;Integer, String&gt; names = new HashMap&lt;&gt;();
                         <pre class="fragment">
                             <code data-trim class="java">
 // Consumer accepts a single input argument and returns no result
+@FunctionalInterface
+public interface Consumer&lt;T&gt; {
+    public void accept(T t);
+}
+
 public void processStrings(List&lt;String&gt; strings,
                            Consumer&lt;String&gt; consumer) {
     for (String s : strings) {
@@ -305,7 +316,7 @@ stream.forEach(System.out::println);
                         <p>Can be chained together.</p>
                         <pre>
                             <code data-trim class="java">
-Stream&lt;String&gt; filteredStream = list.stream()
+Stream&lt;String&gt; filteredStream = stream
                                 .map(String::toLowerCase)
                                 .filter(s -> s.startsWith("a"));
                             </code>
@@ -348,6 +359,32 @@ List&lt;String&gt; sortedByLength =
                 <section>
                     <section>
                         <h1>Uber Example</h1>
+                    </section>
+                    <section>
+                        <h2>Employee</h2>
+                        <pre>
+                            <code data-trim class="java">
+public class Employee {
+    String name;
+    int age;
+    Gender gender;
+    int salary;
+    boolean manager;
+    int yearsOfService;
+}
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Goal</h2>
+                        <p>Return the employees that are not managers, have a salary under $100,000, and have over 10 years of service, grouped by gender.
+                    </section>
+                    <section>
+                        <h2>Java 7</h2>
+                        <pre>
+                            <code data-trim class="java">
+                            </code>
+                        </pre>
                     </section>
                 </section>
 
